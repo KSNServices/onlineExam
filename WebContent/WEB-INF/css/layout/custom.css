@@ -1,0 +1,313 @@
+/* here you can put your own css to customize and override the theme */
+
+/***
+Rounded Portlets
+***/
+/*
+.portlet {
+	border-radius: 4px !important;
+}
+
+.portlet .portlet-title {
+	border-radius: 4px 4px 0px 0px !important;
+}
+
+.portlet .portlet-body,
+.portlet .portlet-body .form-actions  {
+	border-radius: 0px 0px 4px 4px !important;
+}
+*/
+
+/*** form customization ***/
+.form-control{
+    padding:5px;
+    height: 28px;
+    font-size:12px;
+}
+
+/*** Breadcrumb module ***/
+.breadcrumb-arrow {
+    height: 36px;
+    padding: 0;
+    line-height: 36px;
+    list-style: none;
+    background-color: #e6e9ed
+}
+.breadcrumb-arrow li:first-child a {
+    border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px
+}
+.breadcrumb-arrow li, .breadcrumb-arrow li a, .breadcrumb-arrow li span {
+    display: inline-block;
+    vertical-align: top
+}
+.breadcrumb-arrow li:not(:first-child) {
+    margin-left: -5px
+}
+.breadcrumb-arrow li+li:before {
+    padding: 0;
+    content: ""
+}
+.breadcrumb-arrow li span {
+    padding: 0 10px
+}
+.breadcrumb-arrow li a, .breadcrumb-arrow li:not(:first-child) span {
+    height: 36px;
+    padding: 0 10px 0 25px;
+    line-height: 36px
+}
+.breadcrumb-arrow li:first-child a {
+    padding: 0 10px
+}
+.breadcrumb-arrow li a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    background-color: #36c6d3;
+    border: 1px solid #2fa2ad
+}
+.breadcrumb-arrow li:first-child a {
+    padding-left: 10px
+}
+.breadcrumb-arrow li a:after, .breadcrumb-arrow li a:before {
+    position: absolute;
+    top: -1px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent
+}
+.breadcrumb-arrow li a:before {
+    right: -10px;
+    z-index: 3;
+    border-left-color: #36c6d3;
+    border-left-style: solid;
+    border-left-width: 11px
+}
+.breadcrumb-arrow li a:after {
+    right: -11px;
+    z-index: 2;
+    border-left: 11px solid #2fa2ad
+}
+.breadcrumb-arrow li a:focus, .breadcrumb-arrow li a:hover {
+    background-color: #4fc1e9;
+    border: 1px solid #4fc1e9
+}
+.breadcrumb-arrow li a:focus:before, .breadcrumb-arrow li a:hover:before {
+    border-left-color: #4fc1e9
+}
+.breadcrumb-arrow li a:active {
+    background-color: #2494be;
+    border: 1px solid #2494be
+}
+.breadcrumb-arrow li a:active:after, .breadcrumb-arrow li a:active:before {
+    border-left-color: #2494be
+}
+.breadcrumb-arrow li span {
+    color: #434a54
+}
+.breadcrumb-arrow li.back{
+	float:right;
+}
+
+/*** flex ***/
+.display-flex{
+	display: flex;
+}
+
+/*** helper css ***/
+.color-white{
+    color:#fff;
+}
+.bg-light-green{
+    /*background:#cbf0f4;*/
+        background-color: #c5f3f7;
+    background-image: none;
+    color: #7d7d7d;
+}
+.page-sidebar .page-sidebar-menu > li > a > .title{
+    font-weight: 500;
+    color:#92afc3;
+}
+
+/*** applicant ****/
+
+/*** applicant footer ***/
+.page-footer .page-footer-inner{
+    float:inherit;
+}
+.applicant-footer{
+    background-color:#45b6af !important;
+    text-align: center;
+}
+.applicant-footer .page-footer-inner{
+    color:#fff !important;
+}
+.applicant-footer .page-footer-inner a{
+    color:#fff !important;text-decoration: underline !important;
+}
+
+
+
+/**** modal vertical align *****/
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+
+/*** appplicant login ****/
+.applicant-login .logo{
+    margin: 80px auto 10px auto;
+}
+.applicant-login .logo img{
+    max-width: 220px;
+}
+body.applicant-login{
+    background: #f3f5f9 !important;
+}
+.applicant-login .content{
+    background: #fff !important;
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.03);
+}
+.applicant-login .content h3,.applicant-login .content p, .applicant-login .content label{
+    color: #000 !important;
+}
+.login .copyright{
+    color: #000 !important;
+}
+.login .copyright a{
+    color:inherit;
+    text-decoration: underline;
+}
+
+
+/*** form wizard ***/
+.form-wizard{
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.03);
+}
+.form-wizard .steps{
+    padding: 0px 0 0px 0;
+    margin-bottom: 0;
+}
+.form-wizard .progress{
+    margin-bottom:20px;
+}
+
+
+
+/*** online exam ****/
+.exam-content{
+    position: fixed;
+    right: 480px;
+    top: 100px;
+    width: calc(100% - 480px - 120px);
+    height: calc(100% - 180px);
+    overflow: auto;
+    background: #fff;
+}
+.exam-content .portlet{
+    margin-bottom: 0px;
+}
+.exam-content .content{
+    position: absolute;
+    height: calc(100% - 41px - 50px);
+    overflow-y: scroll;
+    width: 100%;
+    padding:10px;
+}
+.exam-content .actions{
+    position: absolute;
+    width:100%;
+
+    bottom: 0;
+    background: #ddd;
+    color: #fff;
+    padding: 10px;
+}
+
+.exam-sidebar{
+        position: fixed;
+    right: 0px;
+    margin-right: 120px;
+    width: 320px;
+    top: 100px;
+    height: calc(100% - 180px);
+    overflow: auto;
+    overflow-x: hidden;
+    background: #fff;
+}
+.exam-sidebar .header{
+    background: #e6e6e6;
+    padding: 10px;
+}
+.exam-sidebar .user-image{
+    width: 15%;
+    float: left;
+}
+.exam-sidebar .user-details{
+    width: 85%;
+    float: left;
+    padding-left: 10px;
+}
+.exam-sidebar .user-details p{
+    margin:0px;
+    font-weight: 600;
+    color: #6d6d6d;
+}
+.exam-sidebar .timer{
+    color: #fff;
+    font-size: 24px;
+    background: #556080;
+    border-top: 1px solid #c3c2c2;
+    padding: 5px;
+}
+.exam-sidebar .content{
+    position: absolute;
+    height: calc(100% - 65px - 201px);
+    overflow-y: scroll;
+    width: 100%;
+    padding: 10px 15px;
+}
+.exam-sidebar .question-no{
+    width: 45px;
+    margin: 5px 3px;
+    font-size: 15px !important;
+    padding: 5px 13px !important;
+    line-height: 17px !important;
+}
+.exam-sidebar .actions{
+    position: absolute;
+    width:100%;
+    bottom: 50px;
+    background: #e6e6e6;
+    color: #5d5d5d;
+    padding: 10px;
+    font-weight: 600;
+}
+.exam-sidebar .submit-actions{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: #cecdcd;
+    color: #5d5d5d;
+    border-top: 1px solid #bdbdbd;
+    padding: 10px;
+    font-weight: 600;
+}

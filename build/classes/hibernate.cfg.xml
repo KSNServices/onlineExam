@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    	<!-- Masters table mapping -->
+    	<mapping class="com.onlineexam.model.Categories" />
+    	<mapping class="com.onlineexam.model.Country" />
+    	<mapping class="com.onlineexam.model.City" />
+    	<mapping class="com.onlineexam.model.State" />
+    	<mapping class="com.onlineexam.model.AcademicYear" />
+    	
+    	<!-- Users table mapping -->
+    	<mapping class="com.onlineexam.model.User" />    	
+    	<mapping class="com.onlineexam.model.Institute" />   	
+    	    	
+    	<!-- Recruitment mapping tables -->
+    	<mapping class="com.onlineexam.model.ApplicantDocument" />
+    	<mapping class="com.onlineexam.model.ApplicationForm" />
+    	<mapping class="com.onlineexam.model.ApplicantQualificationDetails" />
+    	<mapping class="com.onlineexam.model.ApplicantWorkHistory" />
+    	
+    	
+    	<!-- Recruitment mapping tables -->
+    	<mapping class="com.onlineexam.model.RecruitmentMaster" />
+    	<mapping class="com.onlineexam.model.OnlineExamLevels" />
+    	<mapping class="com.onlineexam.model.OnlineExamSubjects" />
+    	<mapping class="com.onlineexam.model.RecruitmentQuestions" />
+    	<mapping class="com.onlineexam.model.RecruitmentQuestionsSets" />
+    	<mapping class="com.onlineexam.model.RecruitmentQuestionSetDetails" />
+    	<mapping class="com.onlineexam.model.RecruitmentQuestionAnsOptions" />
+    	<mapping class="com.onlineexam.model.RecruitmentSetQuestions" />
+    	<mapping class="com.onlineexam.model.RecruitmentQuestionsSetSubjectDetails" />
+    	    	
+    	<!-- ERP Master mapping table -->
+    	<mapping class="com.onlineexam.model.Modules" />
+    	<mapping class="com.onlineexam.model.PaymentPlan" />
+    	<mapping class="com.onlineexam.model.AdmissionFormModel" />
+    	<mapping class="com.onlineexam.model.Budget" />
+    	<mapping class="com.onlineexam.model.Teacher" />
+   		<mapping class="com.onlineexam.model.Student" />
+   		<mapping class="com.onlineexam.model.FeeStructure" />
+    	<mapping class="com.onlineexam.model.StudentFeeDetail" />	
+   <mapping class="com.onlineexam.model.Attendance" />	
+      <mapping class="com.onlineexam.model.ClassName" />
+          <mapping class="com.onlineexam.model.ClassSection" />
+              <mapping class="com.onlineexam.model.TeacherGrade" />
+              <mapping class="com.onlineexam.model.SalaryStructure" />
+               <mapping class="com.onlineexam.model.AdditionalSalaryComponent" />
+              
+    </session-factory>
+</hibernate-configuration>
