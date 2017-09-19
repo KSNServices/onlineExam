@@ -23,6 +23,8 @@ public Integer getId();
 
 	public	Teacher getTeacherByTeacherId(String id);
 
+	public	List<Teacher> listTeacherAdmin(int adminId);
+
 	
 
 }

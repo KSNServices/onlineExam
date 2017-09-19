@@ -62,6 +62,16 @@ public class TeacherDAOImpl implements TeacherDAO {
 		
 	}
 
+	
+	@Override
+	public List<Teacher> listTeacherAdmin(int adminId) {
+		Criteria cr = sessionFactory.getCurrentSession().createCriteria(Teacher.class);
+		cr.add(Restrictions.eq("adminId.id",adminId));
+		List<Teacher> teacherList = cr.list();
+		return teacherList;
+		
+	}
+	
 	@Override
 	public void updateTeacher(Teacher teacher) {
 		// TODO Auto-generated method stub

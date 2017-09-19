@@ -60,6 +60,14 @@ public class StudentDAOImpl implements StudentDAO {
 		List<Student> studentList = cr.list();
 		return studentList;
 	}
+	
+	@Override
+	public List<Student> listStudentAdmin(int adminId) {
+		Criteria cr = sessionFactory.getCurrentSession().createCriteria(Student.class);
+		cr.add(Restrictions.eq("adminId.id",adminId));
+		List<Student> studentList = cr.list();
+		return studentList;
+	}
 
 	@Override
 	public Student getStudentById(Integer id) {

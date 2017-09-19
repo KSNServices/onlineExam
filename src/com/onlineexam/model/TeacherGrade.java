@@ -4,7 +4,6 @@
 package com.onlineexam.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,7 +45,7 @@ public class TeacherGrade implements Serializable{
 	private String gradedescription;
 	
 	
-	
+
 	@Column(name="status")
 	private boolean enabled;
 	
@@ -105,6 +104,10 @@ public class TeacherGrade implements Serializable{
 	public void setGradedescription(String gradedescription) {
 		this.gradedescription = gradedescription;
 	}
+
+
+
+
 
 	public boolean isEnabled() {
 		return enabled;

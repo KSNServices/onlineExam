@@ -23,6 +23,8 @@ public interface StudentFormService {
 
 	public List<Student> listClassStudent(int adminId, int schoolId, String classValue, String section);
 
+	public	List<Student> listStudentAdmin(int adminId);
+
 	
 
 }

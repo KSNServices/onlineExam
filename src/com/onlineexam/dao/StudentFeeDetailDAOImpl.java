@@ -3,15 +3,15 @@ package com.onlineexam.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.ProjectionList;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.onlineexam.model.Student;
 import com.onlineexam.model.StudentFeeDetail;
-import com.onlineexam.model.Teacher;
 
 @Repository
 
@@ -50,8 +50,65 @@ public class StudentFeeDetailDAOImpl implements StudentFeeDetailDAO {
 		return student;
 	}
 	
+	@Override
+	public Double getSumTotalFeeSchool(int adminId, int schoolId) {
+		// TODO Auto-generated method stub
+		Criteria cr = sessionFactory.getCurrentSession().createCriteria(StudentFeeDetail.class);
+		ProjectionList pro = Projections.projectionList();
+		pro.add(Projections.sum("totalFee"));
+		cr.add(Restrictions.eq("schoolId.id",schoolId));
+		cr.add(Restrictions.eq("adminId.id",adminId));
+		cr.setProjection(pro);
+		Double number = (Double)cr.uniqueResult();
 	
+		return number;
+	}
 
+	
+	@Override
+	public Double getRemainingTotalFeeSchool(int adminId, int schoolId) {
+		// TODO Auto-generated method stub
+		Criteria cr = sessionFactory.getCurrentSession().createCriteria(StudentFeeDetail.class);
+		ProjectionList pro = Projections.projectionList();
+		pro.add(Projections.sum("remainingFee"));
+		cr.add(Restrictions.eq("schoolId.id",schoolId));
+		cr.add(Restrictions.eq("adminId.id",adminId));
+		cr.setProjection(pro);
+		Double number = (Double)cr.uniqueResult();
+	
+		return number;
+	}
+
+	
+	@Override
+	public Double getSumTotalAdminFee(int adminId) {
+		// TODO Auto-generated method stub
+		Criteria cr = sessionFactory.getCurrentSession().createCriteria(StudentFeeDetail.class);
+		ProjectionList pro = Projections.projectionList();
+		pro.add(Projections.sum("totalFee"));
+	
+		cr.add(Restrictions.eq("adminId.id",adminId));
+		cr.setProjection(pro);
+		Double number = (Double)cr.uniqueResult();
+	
+		return number;
+	}
+
+	
+	@Override
+	public Double getRemainingTotalAdminFee(int adminId) {
+		// TODO Auto-generated method stub
+		Criteria cr = sessionFactory.getCurrentSession().createCriteria(StudentFeeDetail.class);
+		ProjectionList pro = Projections.projectionList();
+		pro.add(Projections.sum("remainingFee"));
+		cr.add(Restrictions.eq("adminId.id",adminId));
+		cr.setProjection(pro);
+		Double number = (Double)cr.uniqueResult();
+	
+		return number;
+	}
+	
+	
 	@Override
 	public Integer getId() {
 		// TODO Auto-generated method stub

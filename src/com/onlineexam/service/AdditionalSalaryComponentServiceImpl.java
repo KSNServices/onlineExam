@@ -42,6 +42,14 @@ public class AdditionalSalaryComponentServiceImpl implements AdditionalSalaryCom
 	public Double sumAdditionalSalaryStructure(int adminId, int schoolId, String teacherGrade) {
 		return  addtionalSalaryComponentDAO.sumAdditionalSalaryStructure(adminId, schoolId, teacherGrade);
 	}
+	
+	@Override
+	@Transactional
+	public Double sumAdditionalMonthSalaryStructure(int adminId, int schoolId, String teacherGrade, String month) {
+		return  addtionalSalaryComponentDAO.sumAdditionalMonthSalaryStructure(adminId, schoolId, teacherGrade, month);
+	}
+	
+	
 	@Override
 	@Transactional
 	public AdditionalSalaryComponent getAdditionalSalaryById(Integer id) {

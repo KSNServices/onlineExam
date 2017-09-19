@@ -33,6 +33,15 @@ public class TeacherFormServiceImpl implements TeacherFormService {
 		
 	}
 
+	
+
+	@Override
+	@Transactional
+	public List<Teacher> listTeacherAdmin(int adminId) {
+		return teacherDAO.listTeacherAdmin(adminId);
+		
+	}
+	
 	@Override
 	@Transactional
 	public void removeTeacher(Integer teacherId) {

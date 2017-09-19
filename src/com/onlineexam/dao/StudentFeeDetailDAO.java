@@ -20,4 +20,12 @@ public interface StudentFeeDetailDAO {
 
 	public	List<StudentFeeDetail> listStudentEditFeeDetails(int adminId, int schoolId, String sequenceStudentId);
 
+	public	Double getSumTotalFeeSchool(int adminId, int schoolId);
+
+	public	Double getRemainingTotalAdminFee(int adminId);
+
+	public	Double getSumTotalAdminFee(int adminId);
+
+	public	Double getRemainingTotalFeeSchool(int adminId, int schoolId);
+
 }

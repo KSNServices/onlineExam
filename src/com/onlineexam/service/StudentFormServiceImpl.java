@@ -31,6 +31,14 @@ public class StudentFormServiceImpl implements StudentFormService {
 		return studentDAO.listStudent( adminId,  schoolId);
 		
 	}
+	
+
+	@Override
+	@Transactional
+	public List<Student> listStudentAdmin(int adminId) {
+		return studentDAO.listStudentAdmin( adminId);
+		
+	}
 
 	@Override
 	@Transactional

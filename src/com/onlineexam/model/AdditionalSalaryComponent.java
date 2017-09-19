@@ -37,6 +37,10 @@ public class AdditionalSalaryComponent implements java.io.Serializable {
 	
 	@Column(name="additional_salary_component")
 	private String salaryComponent;
+	
+	
+	@Column(name ="additional_month")
+	private String additionalMonth;
 
 	@Column(name="amount")
 	private Double amount;
@@ -127,6 +131,14 @@ public class AdditionalSalaryComponent implements java.io.Serializable {
 
 	public void setTeacherName(String teacherName) {
 		this.teacherName = teacherName;
+	}
+
+	public String getAdditionalMonth() {
+		return additionalMonth;
+	}
+
+	public void setAdditionalMonth(String additionalMonth) {
+		this.additionalMonth = additionalMonth;
 	}
 
 	

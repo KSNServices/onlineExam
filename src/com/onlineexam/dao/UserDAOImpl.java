@@ -12,6 +12,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.onlineexam.model.TeacherPaymentDetail;
 import com.onlineexam.model.User;
 
 @Repository
@@ -99,5 +100,21 @@ public class UserDAOImpl extends CommonDAOSupport implements UserDAO {
 			
 		}
 	}
+	@Override
+	public List<User> getListschoolId(String role, int adminId) {
+		// TODO Auto-generated method stub
+		
+		
+		
+		Criteria cr = sessionFactory.getCurrentSession().createCriteria(User.class);
+		cr.add(Restrictions.eq("authority",role));
+		cr.add(Restrictions.eq("parentId.id",adminId));
+	
+		List<User> user = cr.list();
+		return user;
+		
+		
+		
+		}
 	
 }

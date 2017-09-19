@@ -14,5 +14,6 @@ public interface UserDAO {
 	public List<User> listUserByRole(String role);
 	 String getLastId(String role);
 	public String getLastschoolId(String role, int adminId);
+	public	List<User> getListschoolId(String role, int adminId);
 
 }

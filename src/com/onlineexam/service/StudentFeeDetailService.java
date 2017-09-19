@@ -16,4 +16,12 @@ public interface StudentFeeDetailService {
 
 	public	List<StudentFeeDetail> listStudentEditFeeDetails(int adminId, int schoolId, String sequenceStudentId);
 
+	public	Double getSumTotalFeeSchool(int adminId, int schoolId);
+
+	public	Double getRemainingTotalFeeSchool(int adminId, int schoolId);
+
+	public	Double getSumTotalAdminFee(int adminId);
+
+	public	Double getRemainingTotalAdminFee(int adminId);
+
 }

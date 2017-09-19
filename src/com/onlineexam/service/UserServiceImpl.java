@@ -110,6 +110,12 @@ public class UserServiceImpl implements UserService {
 	
 	@Transactional
 	@Override
+	public List<User> getListschoolId(String role ,int adminId) {
+		return userDAO.getListschoolId(role, adminId);
+	}
+	
+	@Transactional
+	@Override
 	public void resetPassword(User user) {
 		String tempPass=ERPHelper.generateTemporaryPassward(tempPassLength,tempPassType);
 		user.setPassword(passwordEncoder.encode(tempPass));

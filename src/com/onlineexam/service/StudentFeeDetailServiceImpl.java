@@ -41,6 +41,33 @@ public class StudentFeeDetailServiceImpl implements StudentFeeDetailService {
 	public StudentFeeDetail getStudentByStudentId(String id) {
 		return studentFeeDetailDAO.getStudentByStudentId(id);
 	}
+	
+	
+	
+	
+	@Override
+	@Transactional
+	public Double getSumTotalFeeSchool(int adminId, int schoolId  ) {
+		return studentFeeDetailDAO.getSumTotalFeeSchool(adminId,schoolId);
+	}
+
+	@Override
+	@Transactional
+	public Double getRemainingTotalFeeSchool(int adminId, int schoolId  ) {
+		return studentFeeDetailDAO.getRemainingTotalFeeSchool(adminId,schoolId);
+	}
+
+	@Override
+	@Transactional
+	public Double getSumTotalAdminFee(int adminId ) {
+		return studentFeeDetailDAO.getSumTotalAdminFee(adminId);
+	}
+
+	@Override
+	@Transactional
+	public Double getRemainingTotalAdminFee(int adminId ) {
+		return studentFeeDetailDAO.getRemainingTotalAdminFee(adminId);
+	}
 
 	@Override
 	public void removeStudentFeeDetail(StudentFeeDetail StudentFeeDetailId) {

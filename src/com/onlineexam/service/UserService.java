@@ -16,4 +16,5 @@ public interface UserService {
     public void resetPassword(User user);
 	public String getLastId(String role);
 	public String getLastschoolId(String role, int adminId);
+	public	List<User> getListschoolId(String role, int adminId);
 }

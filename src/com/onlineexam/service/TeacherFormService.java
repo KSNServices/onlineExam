@@ -22,4 +22,6 @@ public interface TeacherFormService {
 	
 	public	Teacher getTeacherByTeacherId(String id);
 
+	public	List<Teacher> listTeacherAdmin(int adminId);
+
 }

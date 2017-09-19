@@ -16,5 +16,6 @@ public interface AddtionalSalaryComponentDAO {
 	public	List<AdditionalSalaryComponent> listAdditionalSalaryStructure(int adminId, int schoolId, String teacherGrade);
 	public	Double sumAdditionalSalaryStructure(int adminId, int schoolId, String teacherGrade);
 	public	AdditionalSalaryComponent getAdditionalSalaryById(Integer id);
+	public	Double sumAdditionalMonthSalaryStructure(int adminId, int schoolId, String teacherId, String month);
 
 }

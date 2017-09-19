@@ -61,6 +61,24 @@ public class AddtionalSalaryComponentDAOImpl implements AddtionalSalaryComponent
 	}
 	
 	@Override
+	public Double sumAdditionalMonthSalaryStructure(int adminId, int schoolId, String teacherId, String month) {
+		
+		Criteria cr = sessionFactory.getCurrentSession().createCriteria(AdditionalSalaryComponent.class);
+		ProjectionList pro = Projections.projectionList();
+		pro.add(Projections.sum("amount"));
+		cr.add(Restrictions.eq("schoolId.id",schoolId));
+		cr.add(Restrictions.eq("adminId.id",adminId));
+		cr.add(Restrictions.eq("teacherIdValue",teacherId));
+		cr.add(Restrictions.eq("additionalMonth",month));
+		cr.setProjection(pro);
+		Double number = (Double)cr.uniqueResult();
+		
+	return number;
+		
+	}
+	
+	
+	@Override
 	public AdditionalSalaryComponent getAdditionalSalaryById(Integer id) {
 	
 		AdditionalSalaryComponent idDetail = (AdditionalSalaryComponent)  sessionFactory.getCurrentSession().get(AdditionalSalaryComponent.class,id);
