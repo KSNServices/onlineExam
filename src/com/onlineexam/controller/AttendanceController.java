@@ -71,7 +71,7 @@ public class AttendanceController {
 	}
 	
 	@RequestMapping(value ="/saveAttendanceForm", method = RequestMethod.POST)
-	public String saveAttendanceForm(Map<String, Object> map,HttpSession session, @ModelAttribute("admissionFormModel") AdmissionFormModel admissionFormModel, @Valid AdmissionFormModel admissionFormModelValid,
+	public String saveAttendanceForm(Map<String, Object> map,HttpSession session, @ModelAttribute("attendance") Attendance attendance, @Valid Attendance attendanceValid,
 			BindingResult result,@RequestParam("userpic") MultipartFile userpic) throws Exception {
 		if (result.hasErrors()) {
 			map.put("admissionFormModel", new AdmissionFormModel());
@@ -83,7 +83,7 @@ public class AttendanceController {
 		} 
 		else {
 			try {				
-				if(null == admissionFormModel.getId()){
+				if(null == attendance.getId()){
 					if (userpic != null &&  userpic.getSize()>0) {
 						FileUtils fileUtils = new FileUtils();
 						// Validate image size
@@ -103,7 +103,7 @@ public class AttendanceController {
 						String profilePicDirectory = ERPConstant.ERP_MEDIA_DIRECTORY + File.separator
 								+ ERPConstant.ADMISSION_STUDENT_IMAGES;
 						String fileAbsolutePath = fileUtils.uploadSingleFiles(userpic, profilePicDirectory);
-						admissionFormModel.setAdmissionStudentImage(fileAbsolutePath);
+						//Attendance.setAdmissionStudentImage(fileAbsolutePath);
 					}
 					
 					
@@ -133,7 +133,7 @@ public class AttendanceController {
 						String profilePicDirectory = ERPConstant.ERP_MEDIA_DIRECTORY + File.separator
 								+ ERPConstant.ADMISSION_STUDENT_IMAGES;
 						String fileAbsolutePath = fileUtils.uploadSingleFiles(userpic, profilePicDirectory);
-						admissionFormModel.setAdmissionStudentImage(fileAbsolutePath);
+						//admissionFormModel.setAdmissionStudentImage(fileAbsolutePath);
 					}
 					
 					

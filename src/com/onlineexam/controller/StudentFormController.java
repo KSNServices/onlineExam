@@ -7,15 +7,22 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.Entity;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -25,6 +32,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.onlineexam.constants.ERPConstant;
@@ -252,22 +260,24 @@ public class StudentFormController {
 		return;
 	}
 	
-	/*@RequestMapping("/getclassSectionList/{id}")
-	public HttpEntity<String> getclassSectionList(Map<String, List<ClassSection>> map, HttpSession session, @PathVariable("id") String id,
+	//@RequestMapping("/getclassSectionList/{id}")
+	//@Produces("application/json")
+	@GET
+	@Path("/getclassSectionList/{id}")
+	@Produces("application/json")
+	@RequestMapping(value="/getclassSectionList/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	//@ResponseBody
+	public @ResponseBody List<ClassSection> getclassSectionList( HttpSession session, @PathVariable("id") String id,
 			HttpServletResponse response) throws Exception {
-		
+	    
 		String adminIdString = String.valueOf(((User) session.getAttribute("userDetails")).getParentId().getId());
 		String schoolIdString = ((User) session.getAttribute("userDetails")).getUserNumber();
+				
+		//map.put("classSectionList",classSectionService.listClassSection((Integer.parseInt(adminIdString)), Integer.parseInt(schoolIdString), id));
+		return classSectionService.listClassSection((Integer.parseInt(adminIdString)), Integer.parseInt(schoolIdString), id);
 		
-		
-		map.put("classSectionList",classSectionService.listClassSection((Integer.parseInt(adminIdString)), Integer.parseInt(schoolIdString), id));
-		
-		 HttpHeaders responseHeaders = new HttpHeaders();
-		 responseHeaders.setContentType(MediaType.APPLICATION_JSON);
-		   responseHeaders.set("MyResponseHeader", "MyValue");
-		   return new HttpEntity<String>("Hello World", responseHeaders);
 	}
-	*/
+
 	
 
 	@RequestMapping(value = "/newStudentDetail/{registrationId}")
