@@ -1,15 +1,11 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ include file="/WEB-INF/jsp/common/top.jsp"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="page-content">
 	<!-- BEGIN PAGE HEAD -->
 	<div class="page-head">
 		<!-- BEGIN PAGE TITLE -->
 		<div class="page-title">
 			<h1>
-				<spring:message code="menu.dashboard" text="" /><small><spring:message code="सांख्यिकी और रिपोर्टसांख्यिकी और रिपोर्टsadmin.statistics_reports" text="" /></small>
+				Dashboard <small>statistics & report</small>
 			</h1>
 		</div>
 		<!-- END PAGE TITLE -->
@@ -29,9 +25,9 @@
 				<div class="display">
 					<div class="number">
 						<h3 class="font-green-sharp">
-							7800<small class="font-green-sharp">$</small>
+								${totalStudentAdmin}<small class="font-green-sharp">$</small>
 						</h3>
-						<small>TOTAL PROFIT</small>
+						<small><spring:message code="total.student" text="" /></small>
 					</div>
 					<div class="icon">
 						<i class="icon-pie-chart"></i>
@@ -41,12 +37,12 @@
 					<div class="progress">
 						<span style="width: 76%;"
 							class="progress-bar progress-bar-success green-sharp"> <span
-							class="sr-only">76% progress</span>
+							class="sr-only"></span>
 						</span>
 					</div>
 					<div class="status">
-						<div class="status-title">progress</div>
-						<div class="status-number">76%</div>
+						<div class="status-title"></div>
+						<div class="status-number"></div>
 					</div>
 				</div>
 			</div>
@@ -55,8 +51,8 @@
 			<div class="dashboard-stat2">
 				<div class="display">
 					<div class="number">
-						<h3 class="font-red-haze">1349</h3>
-						<small>NEW FEEDBACKS</small>
+						<h3 class="font-red-haze">${totalTeacherAdmin}</h3>
+						<small><spring:message code="total.Teacher" text="" /></small>
 					</div>
 					<div class="icon">
 						<i class="icon-like"></i>
@@ -80,8 +76,8 @@
 			<div class="dashboard-stat2">
 				<div class="display">
 					<div class="number">
-						<h3 class="font-blue-sharp">567</h3>
-						<small>NEW ORDERS</small>
+						<h3 class="font-blue-sharp">${totalAmountAdmin}</h3>
+						<small><spring:message code="total.TotalAmount" text="" /></small>
 					</div>
 					<div class="icon">
 						<i class="icon-basket"></i>
@@ -105,8 +101,8 @@
 			<div class="dashboard-stat2">
 				<div class="display">
 					<div class="number">
-						<h3 class="font-purple-soft">276</h3>
-						<small>NEW USERS</small>
+						<h3 class="font-purple-soft">${totalRemainingAmountAdmin}</h3>
+						<small><spring:message code="total.TotalRemainingAmount" text="" /></small>
 					</div>
 					<div class="icon">
 						<i class="icon-user"></i>
@@ -134,48 +130,85 @@
 				<div class="portlet-title">
 					<div class="caption caption-md">
 						<i class="icon-bar-chart theme-font-color hide"></i> <span
-							class="caption-subject theme-font-color bold uppercase">Sales
-							Summary</span> <span class="caption-helper hide">weekly stats...</span>
+							class="caption-subject theme-font-color bold uppercase"><spring:message code="total.summary" text="" /></span> <span class="caption-helper hide"></span>
 					</div>
 					<div class="actions">
 						<div class="btn-group btn-group-devided" data-toggle="buttons">
 							<label
 								class="btn btn-transparent grey-salsa btn-circle btn-sm active">
-								<input type="radio" name="options" class="toggle" id="option1">Today
+								<input type="radio" name="options" class="toggle" id="option1"><spring:message code="total.class" text="" />
 							</label> <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
-								<input type="radio" name="options" class="toggle" id="option2">Week
+								<input type="radio" name="options" class="toggle" id="option2"><spring:message code="total.teacher" text="" />
 							</label> <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
-								<input type="radio" name="options" class="toggle" id="option2">Month
+								<input type="radio" name="options" class="toggle" id="option2"><spring:message code="total.staff" text="" />
 							</label>
 						</div>
 					</div>
 				</div>
 				<div class="portlet-body">
 					<div class="row list-separated">
-						<div class="col-md-3 col-sm-3 col-xs-6">
-							<div class="font-grey-mint font-sm">Total Sales</div>
-							<div class="uppercase font-hg font-red-flamingo">
-								13,760 <span class="font-lg font-grey-mint">$</span>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6">
-							<div class="font-grey-mint font-sm">Revenue</div>
-							<div class="uppercase font-hg theme-font-color">
-								4,760 <span class="font-lg font-grey-mint">$</span>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6">
-							<div class="font-grey-mint font-sm">Expenses</div>
-							<div class="uppercase font-hg font-purple">
-								11,760 <span class="font-lg font-grey-mint">$</span>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6">
-							<div class="font-grey-mint font-sm">Growth</div>
-							<div class="uppercase font-hg font-blue-sharp">
-								9,760 <span class="font-lg font-grey-mint">$</span>
-							</div>
-						</div>
+					
+						
+						
+					<c:if test="${!empty listSchool}">
+						<table id="sample_3"
+							class="table table-bordered table-striped table-condensed flip-content">
+							<thead class="flip-content">
+								<tr>
+									<th><spring:message code="page.table.slno" text="" /></th>
+									<th><spring:message code="class.student" text="" /></th>
+									<th><spring:message code="class.numberStudent" text="" /></th>
+									<th><spring:message code="class.paymentRecieved" text="" /></th>
+								
+								
+									<th><spring:message code="page.table.action" text="" /></th>
+									</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${listSchool}" var="user"
+									varStatus="status">
+									<tr>
+									<td>${status.count}</td>
+										
+										<td>${user.userName}</td>
+										<td>${user.emailAddress}</td>
+										<td>${user.mobileNumber}</td>
+										
+										
+										<td class="display-flex"><a href="javascript:;"
+											data-original-title="View"
+											class="tooltips btn btn-success btn-xs"> <i
+												class="fa fa-eye"></i>
+										</a> <a
+											href="${pageContext.request.contextPath}/getSchoolData/${user.id}"
+											data-original-title="Edit"
+											class="tooltips btn btn-success btn-xs"> <i
+												class="fa fa-pencil"></i>
+										</a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</c:if>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
 					</div>
 					<ul class="list-separated list-inline-xs hide">
 						<li>
@@ -323,7 +356,7 @@
 				<div class="portlet-title">
 					<div class="caption caption-md">
 						<i class="icon-bar-chart theme-font-color hide"></i> <span
-							class="caption-subject theme-font-color bold uppercase">TASKS</span>
+							class="caption-subject theme-font-color bold uppercase"><spring:message code="total.Task" text="" /></span>
 						<span class="caption-helper">16 pending</span>
 					</div>
 					<div class="inputs">
@@ -761,612 +794,7 @@
 			<!-- END PORTLET-->
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-6 col-sm-6">
-			<!-- BEGIN REGIONAL STATS PORTLET-->
-			<div class="portlet light ">
-				<div class="portlet-title">
-					<div class="caption caption-md">
-						<i class="icon-bar-chart theme-font-color hide"></i> <span
-							class="caption-subject theme-font-color bold uppercase">Regional
-							Stats</span>
-					</div>
-					<div class="actions">
-						<a class="btn btn-circle btn-icon-only btn-default"
-							href="javascript:;"> <i class="icon-cloud-upload"></i>
-						</a> <a class="btn btn-circle btn-icon-only btn-default"
-							href="javascript:;"> <i class="icon-wrench"></i>
-						</a> <a class="btn btn-circle btn-icon-only btn-default fullscreen"
-							href="javascript:;"> </a> <a
-							class="btn btn-circle btn-icon-only btn-default"
-							href="javascript:;"> <i class="icon-trash"></i>
-						</a>
-					</div>
-				</div>
-				<div class="portlet-body">
-					<div id="region_statistics_loading">
-						<img src="images/layout/loading.gif" alt="loading" />
-					</div>
-					<div id="region_statistics_content" class="display-none">
-						<div class="btn-toolbar margin-bottom-10">
-							<div class="btn-group btn-group-circle" data-toggle="buttons">
-								<a href="" class="btn grey-salsa btn-sm active"> Users </a> <a
-									href="" class="btn grey-salsa btn-sm"> Orders </a>
-							</div>
-							<div class="btn-group pull-right">
-								<a href=""
-									class="btn btn-circle grey-salsa btn-sm dropdown-toggle"
-									data-toggle="dropdown" data-hover="dropdown"
-									data-close-others="true"> Select Region <span
-									class="fa fa-angle-down"> </span>
-								</a>
-								<ul class="dropdown-menu pull-right">
-									<li><a href="javascript:;" id="regional_stat_world">
-											World </a></li>
-									<li><a href="javascript:;" id="regional_stat_usa"> USA
-									</a></li>
-									<li><a href="javascript:;" id="regional_stat_europe">
-											Europe </a></li>
-									<li><a href="javascript:;" id="regional_stat_russia">
-											Russia </a></li>
-									<li><a href="javascript:;" id="regional_stat_germany">
-											Germany </a></li>
-								</ul>
-							</div>
-						</div>
-						<div id="vmap_world" class="vmaps display-none"></div>
-						<div id="vmap_usa" class="vmaps display-none"></div>
-						<div id="vmap_europe" class="vmaps display-none"></div>
-						<div id="vmap_russia" class="vmaps display-none"></div>
-						<div id="vmap_germany" class="vmaps display-none"></div>
-					</div>
-				</div>
-			</div>
-			<!-- END REGIONAL STATS PORTLET-->
-		</div>
-		<div class="col-md-6 col-sm-6">
-			<!-- BEGIN PORTLET-->
-			<div class="portlet light">
-				<div class="portlet-title tabbable-line">
-					<div class="caption caption-md">
-						<i class="icon-globe theme-font-color hide"></i> <span
-							class="caption-subject theme-font-color bold uppercase">Feeds</span>
-					</div>
-					<ul class="nav nav-tabs">
-						<li class="active"><a href="#tab_1_1" data-toggle="tab">
-								System </a></li>
-						<li><a href="#tab_1_2" data-toggle="tab"> Activities </a></li>
-					</ul>
-				</div>
-				<div class="portlet-body">
-					<!--BEGIN TABS-->
-					<div class="tab-content">
-						<div class="tab-pane active" id="tab_1_1">
-							<div class="scroller" style="height: 337px;"
-								data-always-visible="1" data-rail-visible1="0"
-								data-handle-color="#D7DCE2">
-								<ul class="feeds">
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-success">
-														<i class="fa fa-bell-o"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">
-														You have 4 pending tasks. <span
-															class="label label-sm label-info"> Take action <i
-															class="fa fa-share"></i>
-														</span>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">Just now</div>
-										</div>
-									</li>
-									<li><a href="javascript:;">
-											<div class="col1">
-												<div class="cont">
-													<div class="cont-col1">
-														<div class="label label-sm label-success">
-															<i class="fa fa-bell-o"></i>
-														</div>
-													</div>
-													<div class="cont-col2">
-														<div class="desc">New version v1.4 just lunched!</div>
-													</div>
-												</div>
-											</div>
-											<div class="col2">
-												<div class="date">20 mins</div>
-											</div>
-									</a></li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-danger">
-														<i class="fa fa-bolt"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">Database server #12 overloaded.
-														Please fix the issue.</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">24 mins</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-info">
-														<i class="fa fa-bullhorn"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">New order received and pending for
-														process.</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">30 mins</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-success">
-														<i class="fa fa-bullhorn"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">New payment refund and pending
-														approval.</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">40 mins</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-warning">
-														<i class="fa fa-plus"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">New member registered. Pending
-														approval.</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">1.5 hours</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-success">
-														<i class="fa fa-bell-o"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">
-														Web server hardware needs to be upgraded. <span
-															class="label label-sm label-default "> Overdue </span>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">2 hours</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-default">
-														<i class="fa fa-bullhorn"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">Prod01 database server is
-														overloaded 90%.</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">3 hours</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-warning">
-														<i class="fa fa-bullhorn"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">New group created. Pending manager
-														review.</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">5 hours</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-info">
-														<i class="fa fa-bullhorn"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">Order payment failed.</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">18 hours</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-default">
-														<i class="fa fa-bullhorn"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">New application received.</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">21 hours</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-info">
-														<i class="fa fa-bullhorn"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">Dev90 web server restarted. Pending
-														overall system check.</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">22 hours</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-default">
-														<i class="fa fa-bullhorn"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">New member registered. Pending
-														approval</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">21 hours</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-info">
-														<i class="fa fa-bullhorn"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">L45 Network failure. Schedule
-														maintenance.</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">22 hours</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-default">
-														<i class="fa fa-bullhorn"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">Order canceled with failed payment.
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">21 hours</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-info">
-														<i class="fa fa-bullhorn"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">Web-A2 clound instance created.
-														Schedule full scan.</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">22 hours</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-default">
-														<i class="fa fa-bullhorn"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">Member canceled. Schedule account
-														review.</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">21 hours</div>
-										</div>
-									</li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-info">
-														<i class="fa fa-bullhorn"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">New order received. Please take
-														care of it.</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">22 hours</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="tab-pane" id="tab_1_2">
-							<div class="scroller" style="height: 337px;"
-								data-always-visible="1" data-rail-visible1="0"
-								data-handle-color="#D7DCE2">
-								<ul class="feeds">
-									<li><a href="javascript:;">
-											<div class="col1">
-												<div class="cont">
-													<div class="cont-col1">
-														<div class="label label-sm label-success">
-															<i class="fa fa-bell-o"></i>
-														</div>
-													</div>
-													<div class="cont-col2">
-														<div class="desc">New user registered</div>
-													</div>
-												</div>
-											</div>
-											<div class="col2">
-												<div class="date">Just now</div>
-											</div>
-									</a></li>
-									<li><a href="javascript:;">
-											<div class="col1">
-												<div class="cont">
-													<div class="cont-col1">
-														<div class="label label-sm label-success">
-															<i class="fa fa-bell-o"></i>
-														</div>
-													</div>
-													<div class="cont-col2">
-														<div class="desc">New order received</div>
-													</div>
-												</div>
-											</div>
-											<div class="col2">
-												<div class="date">10 mins</div>
-											</div>
-									</a></li>
-									<li>
-										<div class="col1">
-											<div class="cont">
-												<div class="cont-col1">
-													<div class="label label-sm label-danger">
-														<i class="fa fa-bolt"></i>
-													</div>
-												</div>
-												<div class="cont-col2">
-													<div class="desc">
-														Order #24DOP4 has been rejected. <span
-															class="label label-sm label-danger "> Take action
-															<i class="fa fa-share"></i>
-														</span>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col2">
-											<div class="date">24 mins</div>
-										</div>
-									</li>
-									<li><a href="javascript:;">
-											<div class="col1">
-												<div class="cont">
-													<div class="cont-col1">
-														<div class="label label-sm label-success">
-															<i class="fa fa-bell-o"></i>
-														</div>
-													</div>
-													<div class="cont-col2">
-														<div class="desc">New user registered</div>
-													</div>
-												</div>
-											</div>
-											<div class="col2">
-												<div class="date">Just now</div>
-											</div>
-									</a></li>
-									<li><a href="javascript:;">
-											<div class="col1">
-												<div class="cont">
-													<div class="cont-col1">
-														<div class="label label-sm label-success">
-															<i class="fa fa-bell-o"></i>
-														</div>
-													</div>
-													<div class="cont-col2">
-														<div class="desc">New user registered</div>
-													</div>
-												</div>
-											</div>
-											<div class="col2">
-												<div class="date">Just now</div>
-											</div>
-									</a></li>
-									<li><a href="javascript:;">
-											<div class="col1">
-												<div class="cont">
-													<div class="cont-col1">
-														<div class="label label-sm label-success">
-															<i class="fa fa-bell-o"></i>
-														</div>
-													</div>
-													<div class="cont-col2">
-														<div class="desc">New user registered</div>
-													</div>
-												</div>
-											</div>
-											<div class="col2">
-												<div class="date">Just now</div>
-											</div>
-									</a></li>
-									<li><a href="javascript:;">
-											<div class="col1">
-												<div class="cont">
-													<div class="cont-col1">
-														<div class="label label-sm label-success">
-															<i class="fa fa-bell-o"></i>
-														</div>
-													</div>
-													<div class="cont-col2">
-														<div class="desc">New user registered</div>
-													</div>
-												</div>
-											</div>
-											<div class="col2">
-												<div class="date">Just now</div>
-											</div>
-									</a></li>
-									<li><a href="javascript:;">
-											<div class="col1">
-												<div class="cont">
-													<div class="cont-col1">
-														<div class="label label-sm label-success">
-															<i class="fa fa-bell-o"></i>
-														</div>
-													</div>
-													<div class="cont-col2">
-														<div class="desc">New user registered</div>
-													</div>
-												</div>
-											</div>
-											<div class="col2">
-												<div class="date">Just now</div>
-											</div>
-									</a></li>
-									<li><a href="javascript:;">
-											<div class="col1">
-												<div class="cont">
-													<div class="cont-col1">
-														<div class="label label-sm label-success">
-															<i class="fa fa-bell-o"></i>
-														</div>
-													</div>
-													<div class="cont-col2">
-														<div class="desc">New user registered</div>
-													</div>
-												</div>
-											</div>
-											<div class="col2">
-												<div class="date">Just now</div>
-											</div>
-									</a></li>
-									<li><a href="javascript:;">
-											<div class="col1">
-												<div class="cont">
-													<div class="cont-col1">
-														<div class="label label-sm label-success">
-															<i class="fa fa-bell-o"></i>
-														</div>
-													</div>
-													<div class="cont-col2">
-														<div class="desc">New user registered</div>
-													</div>
-												</div>
-											</div>
-											<div class="col2">
-												<div class="date">Just now</div>
-											</div>
-									</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!--END TABS-->
-				</div>
-			</div>
-			<!-- END PORTLET-->
-		</div>
-
-	</div>
+	
 	<!-- END PAGE CONTENT INNER -->
 </div>
 <%@ include file="/WEB-INF/jsp/common/bottom.jsp"%>

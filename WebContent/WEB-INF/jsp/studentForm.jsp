@@ -140,7 +140,7 @@
 															code="Student.class" text="" /><span class="astrek"
 														style="color: red"> * </span></label>
 													<div class="col-md-8">
-														<form:select id="className" required="required"  onchange="javaScript:getclassSectionList();"  path="className" class="form-control">
+														<form:select id="className" required="required"    path="className" class="form-control">
 															<form:option value="None"
 																label="--------------- Select------------------" />
 															<c:forEach items="${classNameList}" var="className" varStatus="status">
@@ -160,7 +160,7 @@
 															code="Student.class.section" text="" /><span
 														class="astrek" style="color: red"> * </span></label>
 													<div class="col-md-8">
-														<form:select path="classSection" required="required"
+														<form:select id="classSection" path="classSection" required="required"
 															class="form-control">
 															<form:option value="None"
 																label="--------------- Select------------------" />
@@ -475,7 +475,8 @@
 	</div>
 	<!-- END PAGE CONTENT INNER -->
 </div>
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript">
 	function checkValidation(){
 	/* 	alert('hi'); */
@@ -505,23 +506,60 @@
 	 */
 	
 	
-	function getclassSectionList(){
+	/* function getclassSectionList(){
 		//alert("message")
-		//var URL = "/OnlineExam/studentForm/getclassSectionList/";
-		//var className = document.getElementById('className').value;
+		var URL = "/OnlineExam/studentForm/getclassSectionList/";
+		var className = document.getElementById('className').value;
 		alert(className);
 		//var classSection =${classSectionList};
 		//console.log(classSection);
-		/* if(className != 0 )
+		if(className != 0 )
 		{
 		id =className;
 		
 		URL = URL+id;
 	    window.location=URL;
-	     *///alert(URL)
-		//} 
+	     //alert(URL)
+		} 
 	
-   }
+   } */
+	 
+	   $(document).ready(function () {
+        $("#classSection").prop("disabled", true);
+        $("#className").change(function () {
+            if ($("#className").val() != "Please select") {
+                var options = {};
+                var URL = "/OnlineExam/studentForm/getclassSectionList/";
+        		var className = document.getElementById('className').value;
+        		alert(className);
+        		//var classSection =${classSectionList};
+        		//console.log(classSection);
+        		
+        		id =className;
+        		
+        		URL = URL+id;
+        		options.url=URL;
+        		options.type = "Get";
+                options.url = "/OnlineExam/studentForm/getclassSectionList/"+id;
+                
+                options.contentType = "application/json";
+                options.success = function (response) {
+                	console.log(JSON.stringify(response));
+                   /*  $("#state").empty();
+                    for (var i = 0; i < states.length; i++) {
+                        $("#state").append("<option>" + states[i] + "</option>");
+                    }
+                    $("#state").prop("disabled", false); */
+                };
+                options.error = function () { alert("Error retrieving states!"); };
+                $.ajax(options);
+            }
+            else {
+                $("#state").empty();
+                $("#state").prop("disabled", true);
+            }
+        });
+    }); 
 	
 	
  </script>

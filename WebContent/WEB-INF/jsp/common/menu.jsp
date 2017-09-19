@@ -176,6 +176,10 @@
 							</a></li>
 							
 						</ul></li>
+						
+						
+						
+						
 						<li><a href="javascript:;"> <i class="icon-rocket"></i> <span
 							class="title"><spring:message code="menu.teacher" text="" /></span> <span class="arrow "></span>
 					</a>
@@ -191,7 +195,17 @@
 									<i class="icon-map"></i>
 								<spring:message code="menu.attendanceDetails" text="" />
 							</a></li>
-							<li><a
+						
+							
+						</ul></li>
+						
+						
+						
+						<li><a href="javascript:;"> <i class="icon-rocket"></i> <span
+							class="title"><spring:message code="menu.salary" text="" /></span> <span class="arrow "></span>
+					</a>
+						<ul class="sub-menu">
+								<li><a
 								href="${pageContext.request.contextPath}/salary/salaryStructure">
 									<i class="icon-map"></i>
 								<spring:message code="menu.SalaryStructure" text="" />
@@ -203,7 +217,27 @@
 								<spring:message code="menu.AdditionalSalaryStructure" text="" />
 							</a></li>
 							
+							<li><a
+								href="${pageContext.request.contextPath}/teacherSalary/teacherSalaryInformation">
+									<i class="icon-map"></i>
+								<spring:message code="menu.TeacherSalaryDetail" text="" />
+							</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/teacherPayment/teacherPayementInformation">
+									<i class="icon-map"></i>
+								<spring:message code="menu.TeacherPaymentDetail" text="" />
+							</a></li>
 						</ul></li>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
 						<li><a href="javascript:;"> <i class="icon-rocket"></i> <span
 							class="title"><spring:message code="menu.student" text="" /></span> <span class="arrow "></span>
 					</a>
@@ -219,22 +253,9 @@
 								<spring:message code="menu.studentForm" text="" />
 							</a></li>
 						</ul></li>
-						<li><a href="javascript:;"> <i class="icon-rocket"></i> <span
-							class="title"><spring:message code="menu.miscellaneous" text="" /></span> <span class="arrow "></span>
-					</a>
-						<ul class="sub-menu">
-							<li><a
-								href="${pageContext.request.contextPath}/extraActivities/extraActi">
-									<i class="icon-map"></i>
-								<spring:message code="menu.extraAct" text="" />
-							</a></li>
-							<li><a
-								href="${pageContext.request.contextPath}/extraExpenditure/extraExp">
-									<i class="icon-map"></i>
-								<spring:message code="menu.extraExp" text="" />
-							</a></li>
-						</ul></li>
 						
+						
+					
 						
 						<li><a href="javascript:;"> <i class="icon-rocket"></i> <span
 							class="title"><spring:message code="menu.fee" text="" /></span> <span class="arrow "></span>
@@ -258,6 +279,28 @@
 								<spring:message code="menu.Payment" text="" />
 							</a></li>
 						</ul></li>
+						
+							
+						<li><a href="javascript:;"> <i class="icon-rocket"></i> <span
+							class="title"><spring:message code="menu.miscellaneous" text="" /></span> <span class="arrow "></span>
+					</a>
+						<ul class="sub-menu">
+							<li><a
+								href="${pageContext.request.contextPath}/extraActivities/extraActi">
+									<i class="icon-map"></i>
+								<spring:message code="menu.extraAct" text="" />
+							</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/extraExpenditure/extraExp">
+									<i class="icon-map"></i>
+								<spring:message code="menu.extraExp" text="" />
+							</a></li>
+						</ul></li>
+						
+						
+						
+						
+						
 						<li><a href="#"> <i class="fa fa-sitemap"></i> <span
 							class="title"><spring:message code="menu.Recruitment"
 									text="" /></span> <span class="arrow "></span>

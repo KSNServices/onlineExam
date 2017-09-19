@@ -137,11 +137,12 @@
 									<td>${student.studentId}</td>
 										<td>${student.firstName}
 											${student.lastName}</td>
-										
-										<td><input type="radio"  name="${student.studentId}" value="present" checked="checked" ></td>
-									<td><input type="radio"  name="${student.studentId}" value="absent"></td>
-									<td><input type="radio"   name="${student.studentId}" value="late"></td>
-										<td><input type="radio"   name="${student.studentId}" value="leave"></td>
+								    <div>
+									<td><input type="radio" path="present" name="${student.studentId}" value="0" checked="checked" ></td>
+									<td><input type="radio" path="present"  name="${student.studentId}" value="1" ></td>
+									<td><input type="radio"  path="present"  name="${student.studentId}" value="2"></td>
+										<td><input type="radio" path="present" name="${student.studentId}" value="3"></td>
+										</div>
 										<td class="display-flex"><a href="javascript:;"
 											data-original-title="View"
 											class="tooltips btn btn-success btn-xs"> <i

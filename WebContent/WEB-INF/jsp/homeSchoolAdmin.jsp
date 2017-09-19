@@ -51,8 +51,8 @@
 			<div class="dashboard-stat2">
 				<div class="display">
 					<div class="number">
-						<h3 class="font-red-haze">1349</h3>
-						<small>NEW FEEDBACKS</small>
+						<h3 class="font-red-haze">${totalTeacher}</h3>
+						<small><spring:message code="total.Teacher" text="" /></small>
 					</div>
 					<div class="icon">
 						<i class="icon-like"></i>
@@ -76,8 +76,8 @@
 			<div class="dashboard-stat2">
 				<div class="display">
 					<div class="number">
-						<h3 class="font-blue-sharp">567</h3>
-						<small>NEW ORDERS</small>
+						<h3 class="font-blue-sharp">${totalAmount}</h3>
+						<small><spring:message code="total.TotalAmount" text="" /></small>
 					</div>
 					<div class="icon">
 						<i class="icon-basket"></i>
@@ -101,8 +101,8 @@
 			<div class="dashboard-stat2">
 				<div class="display">
 					<div class="number">
-						<h3 class="font-purple-soft">276</h3>
-						<small>NEW USERS</small>
+						<h3 class="font-purple-soft">${totalRemainingAmount}</h3>
+						<small><spring:message code="total.TotalRemainingAmount" text="" /></small>
 					</div>
 					<div class="icon">
 						<i class="icon-user"></i>

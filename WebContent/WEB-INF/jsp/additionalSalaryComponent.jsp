@@ -107,6 +107,38 @@
 											</div>
 										</div>
 
+										<div class="row">
+											<div class="col-md-5 col-md-offset-1">
+												<div class="form-group">
+													<label class="control-label col-md-4"><spring:message
+															code="additionalSalary.month" text="" /> </label>
+													<div class="col-md-8">
+														<form:select path="additionalMonth" id="additionalMonth"
+															required="required"
+														
+															class="form-control">
+															<form:option value="0"
+																label="--------------- Select------------------" />
+															<form:option value="January" label="January" />
+															<form:option value="February" label="February" />
+															<form:option value="March" label="March" />
+															<form:option value="April" label="April" />
+															<form:option value="May" label="May" />
+															<form:option value="June" label="June" />
+															<form:option value="July" label="July" />
+															<form:option value="August" label="August" />
+															<form:option value="September" label="September" />
+															<form:option value="October" label="October" />
+															<form:option value="November" label="November" />
+															<form:option value="December" label="December" />
+														</form:select>
+													</div>
+												</div>
+
+											</div>
+										
+										</div>
+
 										
 
 

@@ -46,6 +46,7 @@
               <mapping class="com.onlineexam.model.TeacherGrade" />
               <mapping class="com.onlineexam.model.SalaryStructure" />
                <mapping class="com.onlineexam.model.AdditionalSalaryComponent" />
+                    <mapping class="com.onlineexam.model.TeacherPaymentDetail" />
               
     </session-factory>
 </hibernate-configuration>
