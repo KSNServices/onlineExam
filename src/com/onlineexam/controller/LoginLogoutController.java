@@ -27,7 +27,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.onlineexam.constants.ModelConstants;
 import com.onlineexam.model.User;
 import com.onlineexam.model.transients.ChangePassword;
+import com.onlineexam.service.StudentFeeDetailService;
 import com.onlineexam.service.StudentFormService;
+import com.onlineexam.service.TeacherFormService;
 import com.onlineexam.service.UserService;
 
 /**
@@ -44,6 +46,15 @@ public class LoginLogoutController extends BaseController {
 	
 	@Autowired
 	private StudentFormService studentFormService;
+	
+	
+	@Autowired
+	private TeacherFormService teacherFormService;
+	
+
+	@Autowired
+	private StudentFeeDetailService studentFeeDetailService;
+	
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -93,7 +104,8 @@ public class LoginLogoutController extends BaseController {
 			if (user.getAuthority().equals(ModelConstants.SUPER_ADMIN)) {
 				return "redirect:/getAllSuperAdminData/"+user.getId();				
 			} else if (user.getAuthority().equals(ModelConstants.ADMIN)) {
-				return "homeAdmin";
+				return "redirect:/getAdminData/"+user.getId();
+				
 			} else if (user.getAuthority().equals(ModelConstants.SCHOOL_ADMIN)) {
 				return "redirect:/getSchoolData/"+user.getId();
 			} else if (user.getAuthority().equals(ModelConstants.PARENT)) {
@@ -128,15 +140,42 @@ public class LoginLogoutController extends BaseController {
 	}
 	
 	
+	
+	 
+	
+	
+	@RequestMapping(value = "/getAdminData/{userId}")
+	public String getAdminData(Map<String, Object> map, HttpSession session,
+			@PathVariable("userId") Integer userId) {
+		if(userId!=null){
+			User user = userService.getUserById(userId);
+			String adminIdString = String.valueOf(((User) session.getAttribute("userDetails")).getId());
+			
+			//String adminIdString = ((User) session.getAttribute("userDetails")).getUserNumber();
+			map.put("listSchool",userService.getListschoolId("ROLE_SCHOOL_ADMIN",Integer.parseInt( adminIdString)));
+			
+			map.put("totalStudentAdmin",(studentFormService.listStudentAdmin(Integer.parseInt(adminIdString))!=null?studentFormService.listStudentAdmin(Integer.parseInt(adminIdString)).size():""));
+			map.put("totalTeacherAdmin",(teacherFormService.listTeacherAdmin(Integer.parseInt(adminIdString))!=null?teacherFormService.listTeacherAdmin(Integer.parseInt(adminIdString)).size():""));
+			map.put("totalAmountAdmin",(studentFeeDetailService.getSumTotalAdminFee(Integer.parseInt(adminIdString))));
+			map.put("totalRemainingAmountAdmin",(studentFeeDetailService.getRemainingTotalAdminFee(Integer.parseInt(adminIdString))));
+			
+		}
+		return "homeAdmin";
+	}
+	
+	
+	
 	@RequestMapping(value = "/getSchoolData/{userId}")
 	public String getSchoolData(Map<String, Object> map, HttpSession session,
 			@PathVariable("userId") Integer userId) {
 		if(userId!=null){
 			User user = userService.getUserById(userId);
-			
-			String adminIdString = String.valueOf(((User) session.getAttribute("userDetails")).getParentId().getId());
-			String schoolIdString = ((User) session.getAttribute("userDetails")).getUserNumber();
+			String adminIdString = String.valueOf( user.getParentId().getId());
+			String schoolIdString = user.getUserNumber();
 			map.put("totalStudent",(studentFormService.listStudent(Integer.parseInt(adminIdString), Integer.parseInt(schoolIdString))!=null?studentFormService.listStudent(Integer.parseInt(adminIdString), Integer.parseInt(schoolIdString)).size():""));
+			map.put("totalTeacher",(teacherFormService.listTeacher(Integer.parseInt(adminIdString), Integer.parseInt(schoolIdString))!=null?teacherFormService.listTeacher(Integer.parseInt(adminIdString), Integer.parseInt(schoolIdString)).size():""));
+			map.put("totalAmount",(studentFeeDetailService.getSumTotalFeeSchool(Integer.parseInt(adminIdString), Integer.parseInt(schoolIdString))));
+			map.put("totalRemainingAmount",(studentFeeDetailService.getRemainingTotalFeeSchool(Integer.parseInt(adminIdString), Integer.parseInt(schoolIdString))));
 			
 		}
 		return "homeSchoolAdmin";
